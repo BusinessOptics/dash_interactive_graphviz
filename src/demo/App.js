@@ -1,20 +1,23 @@
 /* eslint no-magic-numbers: 0 */
 import React, {Component} from 'react';
 
-import { DashInteractiveGraphviz } from '../lib';
+import {DashInteractiveGraphviz} from '../lib';
+
+let dot_source = 'digraph { A->B->D; A->C->D  }';
 
 class App extends Component {
-
     constructor() {
         super();
         this.state = {
-            value: ''
+            dot_source,
+            onNodeClick: console.log,
         };
         this.setProps = this.setProps.bind(this);
     }
 
     setProps(newProps) {
         this.setState(newProps);
+        console.log(newProps);
     }
 
     render() {
@@ -24,8 +27,13 @@ class App extends Component {
                     setProps={this.setProps}
                     {...this.state}
                 />
+                <textarea
+                    defaultValue="digraph { A->B->C->D }"
+                    onChange={e => this.setProps({dot_source: e.target.value})}
+                    style={{position: 'absolute'}}
+                />
             </div>
-        )
+        );
     }
 }
 
