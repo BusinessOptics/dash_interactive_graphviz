@@ -1,0 +1,7 @@
+include dash_interactive_graphviz/dash_interactive_graphviz.min.js
+include dash_interactive_graphviz/dash_interactive_graphviz.min.js.map
+include dash_interactive_graphviz/metadata.json
+include dash_interactive_graphviz/package-info.json
+include README.md
+include LICENSE
+include package.json
