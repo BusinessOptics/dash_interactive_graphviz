@@ -28,6 +28,7 @@ app.layout = html.Div(
                     value=initial_dot_source,
                     style=dict(flexGrow=1, position="relative"),
                 ),
+                dcc.Input(id="engine", value="dot"),
             ],
             style=dict(display="flex", flexDirection="column"),
         ),
@@ -36,14 +37,17 @@ app.layout = html.Div(
 )
 
 
-@app.callback(Output("gv", "dot_source"), [Input("input", "value")])
-def display_output(value):
-    return value
+@app.callback(
+    [Output("gv", "dot_source"), Output("gv", "engine")],
+    [Input("input", "value"), Input("engine", "value")],
+)
+def display_output(value, engine):
+    return value, engine
 
 
 @app.callback(Output("selected", "children"), [Input("gv", "selected")])
 def show_selected(value):
-    return value
+    return html.Div(value)
 
 
 if __name__ == "__main__":

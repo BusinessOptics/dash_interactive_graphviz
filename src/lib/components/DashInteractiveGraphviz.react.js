@@ -1,65 +1,6 @@
 // import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 
-// /**
-//  * ExampleComponent is an example component.
-//  * It takes a property, `label`, and
-//  * displays it.
-//  * It renders an input with the property `value`
-//  * which is editable by the user.
-//  */
-// export default class DashInteractiveGraphviz extends Component {
-//     render() {
-//         const {id, label, setProps, value} = this.props;
-
-//         return (
-//             <div id={id}>
-//                 ExampleComponent: {label}&nbsp;
-//                 <input
-//                     value={value}
-//                     onChange={
-//                         /*
-//                          * Send the new value to the parent component.
-//                          * setProps is a prop that is automatically supplied
-//                          * by dash's front-end ("dash-renderer").
-//                          * In a Dash app, this will update the component's
-//                          * props and send the data back to the Python Dash
-//                          * app server if a callback uses the modified prop as
-//                          * Input or State.
-//                          */
-//                         e => setProps({ value: e.target.value })
-//                     }
-//                 />
-//             </div>
-//         );
-//     }
-// }
-
-// DashInteractiveGraphviz.defaultProps = {};
-
-// DashInteractiveGraphviz.propTypes = {
-//     /**
-//      * The ID used to identify this component in Dash callbacks.
-//      */
-//     id: PropTypes.string,
-
-//     /**
-//      * A label that will be printed when this component is rendered.
-//      */
-//     label: PropTypes.string.isRequired,
-
-//     /**
-//      * The value displayed in the input.
-//      */
-//     value: PropTypes.string,
-
-//     /**
-//      * Dash-assigned callback that should be called to report property changes
-//      * to Dash, to make them available for callbacks.
-//      */
-//     setProps: PropTypes.func
-// };
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
@@ -77,21 +18,19 @@ import {withSize} from 'react-sizeme';
  */
 class DashInteractiveGraphviz extends Component {
     setGraph() {
-        const {dot_source, size} = this.props;
-        const onNodeClick = node => this.onNodeClick(node);
+        const {dot_source, size, engine} = this.props;
+        const onNodeClick = (node) => this.onNodeClick(node);
         try {
             d3.select('.graph')
                 .graphviz()
+                .engine(engine)
                 .width(size.width)
                 .height(size.height)
                 .fit(true)
                 .transition(
-                    d3
-                        .transition('main')
-                        .ease(d3.easeLinear)
-                        .duration(1000)
+                    d3.transition('main').ease(d3.easeLinear).duration(1000)
                 )
-                .attributer(function(d, i, g) {
+                .attributer(function (d, i, g) {
                     if (onNodeClick && d.attributes.class === 'node') {
                         this.onclick = () => onNodeClick(d.key);
                     }
@@ -103,10 +42,7 @@ class DashInteractiveGraphviz extends Component {
     }
 
     fitGraph() {
-        d3.select('.graph')
-            .graphviz()
-            .fit(true)
-            .resetZoom();
+        d3.select('.graph').graphviz().fit(true).resetZoom();
     }
 
     onNodeClick(node) {
@@ -159,7 +95,7 @@ class DashInteractiveGraphviz extends Component {
                     }}
                 >
                     <span
-                        onClick={e => {
+                        onClick={(e) => {
                             this.fitGraph();
                         }}
                         style={{cursor: 'pointer', ...fit_button_style}}
@@ -174,9 +110,12 @@ class DashInteractiveGraphviz extends Component {
 }
 
 DashInteractiveGraphviz.defaultProps = {
-    // fit_button_content: '\u25A3',
-    // fit_button_style: {},
-    // style: {},
+    fit_button_content: '\u25A3',
+    fit_button_style: {},
+    style: {},
+    engine: 'dot',
+    persisted_props: ['selected', 'dot_source', 'engine'],
+    persistence_type: 'local',
 };
 
 DashInteractiveGraphviz.propTypes = {
@@ -196,6 +135,10 @@ DashInteractiveGraphviz.propTypes = {
      * Styling to be applied to the graph container. You may want to change
      * your graphviz background to transparent.
      */
+    engine: PropTypes.string,
+    /**
+     *
+     */
     style: PropTypes.any,
     /**
      * The style of the fit button.
@@ -205,6 +148,37 @@ DashInteractiveGraphviz.propTypes = {
      * The text content of the fit button, by default it is an small square unicode character.
      */
     fit_button_content: PropTypes.string,
+    /**
+     * Used to allow user interactions in this component to be persisted when
+     * the component - or the page - is refreshed. If `persisted` is truthy and
+     * hasn't changed from its previous value, a `value` that the user has
+     * changed while using the app will keep that change, as long as
+     * the new `value` also matches what was given originally.
+     * Used in conjunction with `persistence_type`.
+     */
+    persistence: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+
+    /**
+     * Properties whose user interactions will persist after refreshing the
+     * component or the page. Since only `value` is allowed this prop can
+     * normally be ignored.
+     */
+    persisted_props: PropTypes.arrayOf(
+        PropTypes.oneOf(['selected', 'dot_source', 'engine'])
+    ),
+
+    /**
+     * Where persisted user changes will be stored:
+     * memory: only kept in memory, reset on page refresh.
+     * local: window.localStorage, data is kept after the browser quit.
+     * session: window.sessionStorage, data is cleared once the browser quit.
+     */
+    persistence_type: PropTypes.oneOf(['local', 'session', 'memory']),
+
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
