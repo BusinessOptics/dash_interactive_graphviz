@@ -1,6 +1,6 @@
 Package: dashInteractiveGraphviz
 Title: An interactive graphviz viewer for Dash
-Version: 0.0.2
+Version: 0.2.0
 Description: An interactive graphviz viewer for Dash
 Depends: R (>= 3.0.2)
 Imports: 
