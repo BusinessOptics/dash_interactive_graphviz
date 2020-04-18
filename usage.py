@@ -22,13 +22,31 @@ app.layout = html.Div(
         ),
         html.Div(
             [
-                html.H1(id="selected"),
+                html.H3("Selected Node"),
+                html.Div(id="selected"),
+                html.H3("Dot Source"),
                 dcc.Textarea(
                     id="input",
                     value=initial_dot_source,
                     style=dict(flexGrow=1, position="relative"),
                 ),
-                dcc.Input(id="engine", value="dot"),
+                html.H3("Engine"),
+                dcc.Dropdown(
+                    id="engine",
+                    value="dot",
+                    options=[
+                        dict(label=engine, value=engine)
+                        for engine in [
+                            "dot",
+                            "fdp",
+                            "neato",
+                            "circo",
+                            "osage",
+                            "patchwork",
+                            "twopi",
+                        ]
+                    ],
+                ),
             ],
             style=dict(display="flex", flexDirection="column"),
         ),

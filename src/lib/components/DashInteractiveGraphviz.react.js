@@ -51,12 +51,13 @@ class DashInteractiveGraphviz extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const {dot_source, size} = this.props;
+        const {dot_source, size, engine} = this.props;
 
         if (
             dot_source != prevProps.dot_source ||
             size.height != prevProps.size.height ||
-            size.width != prevProps.size.width
+            size.width != prevProps.size.width ||
+            engine != prevProps.engine
         ) {
             this.setGraph();
         }
@@ -137,7 +138,8 @@ DashInteractiveGraphviz.propTypes = {
      */
     engine: PropTypes.string,
     /**
-     *
+     * Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine
+     * for more information
      */
     style: PropTypes.any,
     /**

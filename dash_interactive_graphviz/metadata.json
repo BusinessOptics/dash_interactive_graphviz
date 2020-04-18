@@ -68,7 +68,7 @@
           "name": "any"
         },
         "required": false,
-        "description": "",
+        "description": "Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine\nfor more information",
         "defaultValue": {
           "value": "{}",
           "computed": false

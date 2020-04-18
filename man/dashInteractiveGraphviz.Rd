@@ -25,7 +25,8 @@ persisted_props=NULL, persistence_type=NULL)
 \item{engine}{Character. Styling to be applied to the graph container. You may want to change
 your graphviz background to transparent.}
 
-\item{style}{Logical | numeric | character | named list | unnamed list. }
+\item{style}{Logical | numeric | character | named list | unnamed list. Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine
+for more information}
 
 \item{fit_button_style}{Logical | numeric | character | named list | unnamed list. The style of the fit button.}
 

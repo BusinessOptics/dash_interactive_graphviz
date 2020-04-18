@@ -51,7 +51,11 @@ def change_my_view(selected):
     # Do something with selected
 ```
 
-Often you may want to update the dot_source based on the selected node. This is supported by Dash. You can see a more complex example in usage.py.
+Often you may want to update the dot_source based on the selected node. This is supported by Dash.
+You can see a more complex example in usage.py.
+
+You can change the layout engine through the `engine` prop. See
+https://github.com/magjac/d3-graphviz#graphviz_engine for more information.
 
 ## Behaviour
 
@@ -63,3 +67,4 @@ The following behaviors are enabled:
 -   You can reset the graph position and zoom by clicking the reset icon in teh top right corner
 -   The graph pane will size to whet ever it's parents size is, the graph will re-render but the re-render is debounced so as not to overload the browser.
 -   You can select a node which will fire an update to any dash callbacks that are connected.
+-   You can change the layout engine

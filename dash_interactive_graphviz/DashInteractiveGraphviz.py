@@ -19,7 +19,8 @@ Keyword arguments:
 - dot_source (string; optional): The dot language source of the graph
 - engine (string; default 'dot'): Styling to be applied to the graph container. You may want to change
 your graphviz background to transparent.
-- style (boolean | number | string | dict | list; optional)
+- style (boolean | number | string | dict | list; optional): Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine
+for more information
 - fit_button_style (boolean | number | string | dict | list; optional): The style of the fit button.
 - fit_button_content (string; default '\u25A3'): The text content of the fit button, by default it is an small square unicode character.
 - persistence (boolean | string | number; optional): Used to allow user interactions in this component to be persisted when
