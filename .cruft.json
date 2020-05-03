@@ -1,0 +1,20 @@
+{
+    "template": "../dash-component-boilerplate/",
+    "commit": "b0d5993955232019c5560d07b4e9fd9e73bea4d0",
+    "context": {
+        "cookiecutter": {
+            "project_name": "dash_interactive_graphviz",
+            "project_shortname": "dash_interactive_graphviz",
+            "component_name": "DashInteractiveGraphviz",
+            "r_prefix": "",
+            "author_name": "James Saunders",
+            "author_email": "james@businessoptics.biz",
+            "github_org": "BusinessOptics",
+            "description": "Project Description",
+            "license": "MIT License",
+            "publish_on_npm": "True",
+            "install_dependencies": "False",
+            "_template": "../dash-component-boilerplate/"
+        }
+    }
+}

@@ -32,15 +32,16 @@ _this_module = _sys.modules[__name__]
 _js_dist = [
     {
         'relative_package_path': 'dash_interactive_graphviz.min.js',
-        'external_url': 'https://unpkg.com/{0}@{2}/{1}/{1}.min.js'.format(
+'external_url': 'https://unpkg.com/{0}@{2}/{1}/{1}.min.js'.format(
             package_name, __name__, __version__),
         'namespace': package_name
     },
     {
         'relative_package_path': 'dash_interactive_graphviz.min.js.map',
-        'external_url': 'https://unpkg.com/{0}@{2}/{1}/{1}.min.js.map'.format(
+'external_url': 'https://unpkg.com/{0}@{2}/{1}/{1}.min.js.map'.format(
             package_name, __name__, __version__),
-        'namespace': package_name
+        'namespace': package_name,
+        'dynamic': True
     }
 ]
 

@@ -24,4 +24,5 @@ config
 CHANGELOG.md
 README.md
 
+# Virtual env
 venv

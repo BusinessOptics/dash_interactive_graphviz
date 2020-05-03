@@ -10,6 +10,6 @@ version = "0.2.0", src = list(href = NULL,
 file = "deps"), meta = NULL,
 script = 'dash_interactive_graphviz.min.js.map',
 stylesheet = NULL, head = NULL, attachment = NULL, package = "dashInteractiveGraphviz",
-all_files = FALSE), class = "html_dependency"))
+all_files = FALSE, dynamic = TRUE), class = "html_dependency"))
 return(deps_metadata)
 }
