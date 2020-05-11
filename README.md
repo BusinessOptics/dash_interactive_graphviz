@@ -6,11 +6,11 @@ Dash Interactive Graphviz renders the [graphviz](https://www.graphviz.org/) or d
 
 It supports:
 
--   Displaying graphviz sources as a graph
--   Rendering is fully client side
--   Zooming and Panning around the graph (With a reset)
--   Selecting nodes
--   Animation between different graphs
+- Displaying graphviz sources as a graph
+- Rendering is fully client side
+- Zooming and Panning around the graph (With a reset)
+- Selecting nodes
+- Animation between different graphs
 
 ## Usage
 
@@ -50,9 +50,9 @@ change elements of your Dash app when a node is selected. For example:
 def change_my_view(selected):
     # Do something with selected
 ```
+You can see a basic example in usage.py.
 
-Often you may want to update the dot_source based on the selected node. This is supported by Dash.
-You can see a more complex example in usage.py.
+Often you may want to update the dot_source based on the selected node. This is supported, and you can see an example in usage_highlighting.py.
 
 You can change the layout engine through the `engine` prop. See
 https://github.com/magjac/d3-graphviz#graphviz_engine for more information.
@@ -61,10 +61,10 @@ https://github.com/magjac/d3-graphviz#graphviz_engine for more information.
 
 The following behaviors are enabled:
 
--   When the dot_source is changed the graph will smoothly animate between the two states.
--   You can click and drag the graph around
--   You can zoom in and out with the scroll wheel
--   You can reset the graph position and zoom by clicking the reset icon in teh top right corner
--   The graph pane will size to whet ever it's parents size is, the graph will re-render but the re-render is debounced so as not to overload the browser.
--   You can select a node which will fire an update to any dash callbacks that are connected.
--   You can change the layout engine
+- When the dot_source is changed the graph will smoothly animate between the two states.
+- You can click and drag the graph around
+- You can zoom in and out with the scroll wheel
+- You can reset the graph position and zoom by clicking the reset icon in teh top right corner
+- The graph pane will size to whet ever it's parents size is, the graph will re-render but the re-render is debounced so as not to overload the browser.
+- You can select a node which will fire an update to any dash callbacks that are connected.
+- You can change the layout engine
