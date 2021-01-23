@@ -20,6 +20,7 @@ class DashInteractiveGraphviz extends Component {
     setGraph() {
         const {dot_source, size, engine} = this.props;
         const onNodeClick = (node) => this.onNodeClick(node);
+        const onEdgeClick = (edge) => this.onEdgeClick(edge)
         try {
             d3.select('.graph')
                 .graphviz()
@@ -33,6 +34,8 @@ class DashInteractiveGraphviz extends Component {
                 .attributer(function (d, i, g) {
                     if (onNodeClick && d.attributes.class === 'node') {
                         this.onclick = () => onNodeClick(d.key);
+                    } else if (onEdgeClick && d.attributes.class === 'edge'){
+                        this.onclick = () => onEdgeClick(d.key);
                     }
                 })
                 .renderDot(dot_source);
@@ -47,8 +50,14 @@ class DashInteractiveGraphviz extends Component {
 
     onNodeClick(node) {
         const {setProps} = this.props;
-        setProps({selected: node});
+        setProps({selected: node, selected_node: node});
     }
+
+    onEdgeClick(edge) {
+        const {setProps} = this.props;
+        setProps({selected: edge, selected_edge : edge});
+    }
+
 
     componentDidUpdate(prevProps) {
         const {dot_source, size, engine} = this.props;
@@ -115,7 +124,7 @@ DashInteractiveGraphviz.defaultProps = {
     fit_button_style: {},
     style: {},
     engine: 'dot',
-    persisted_props: ['selected', 'dot_source', 'engine'],
+    persisted_props: ['selected', 'selected_node', 'selected_edge', 'dot_source', 'engine'],
     persistence_type: 'local',
 };
 
@@ -128,6 +137,14 @@ DashInteractiveGraphviz.propTypes = {
      * The ID of the selected node.
      */
     selected: PropTypes.string,
+    /**
+     * The ID of the selected node.
+     */
+    selected_node: PropTypes.string,
+    /**
+     * The ID of the selected edge.
+     */
+    selected_edge: PropTypes.string,    
     /**
      * The dot language source of the graph
      */
@@ -170,7 +187,7 @@ DashInteractiveGraphviz.propTypes = {
      * normally be ignored.
      */
     persisted_props: PropTypes.arrayOf(
-        PropTypes.oneOf(['selected', 'dot_source', 'engine'])
+        PropTypes.oneOf(['selected', 'selected_node' ,'selected_edge' ,'dot_source', 'engine'])
     ),
 
     /**

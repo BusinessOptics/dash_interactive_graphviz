@@ -29,7 +29,7 @@ edges = [
 ]
 
 
-@app.callback(Output("gv", "dot_source"), [Input("gv", "selected")])
+@app.callback(Output("gv", "dot_source"), [Input("gv", "selected_node")])
 def show_graph(selected):
     """
     Based on the selected node this generates the correct graphviz
