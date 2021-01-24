@@ -55,14 +55,14 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of the selected node."
+        "description": "The ID of the selected node, retains functions of previous 'selected' prop"
       },
       "selected_node": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "The ID of the selected node."
+        "description": "The ID of the selected node. Placeholder for superceding 'selected' prop.\r\nSame functionality as 'selected'"
       },
       "selected_edge": {
         "type": {

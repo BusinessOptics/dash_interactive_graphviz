@@ -1,6 +1,6 @@
 # Dash Interactive Graphviz
 
-Dash Interactive Graphviz renders the [graphviz](https://www.graphviz.org/) or dot language in a a dash component.
+Dash Interactive Graphviz renders the [graphviz](https://www.graphviz.org/) or dot language in a dash component.
 
 > Graphviz is open source graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. It has important applications in networking, bioinformatics, software engineering, database and web design, machine learning, and in visual interfaces for other technical domains.
 
@@ -42,7 +42,7 @@ dash_interactive_graphviz.DashInteractiveGraphviz(
 When a node or edge is clicked the  `selected_node` or `selected_edge` property will change. 
 The `selected` property remains and will still change, but users should update to reflect the node/edge distinction, to avoid breaking changes in the longer term. 
 
-Hooks on selected graph elements allows you to change elements of your Dash app when a graph element is selected. For example:
+Hooks on selected graph elements allow you to change elements of your Dash app when a graph element is selected. For example:
 
 ```python
 @app.callback(

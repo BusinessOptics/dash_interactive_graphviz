@@ -15,8 +15,9 @@ intensive.
 
 Keyword arguments:
 - id (string; optional): The ID used to identify this component in Dash callbacks.
-- selected (string; optional): The ID of the selected node.
-- selected_node (string; optional): The ID of the selected node.
+- selected (string; optional): The ID of the selected node, retains functions of previous 'selected' prop
+- selected_node (string; optional): The ID of the selected node. Placeholder for superceding 'selected' prop.
+Same functionality as 'selected'
 - selected_edge (string; optional): The ID of the selected edge.
 - dot_source (string; optional): The dot language source of the graph
 - engine (string; default 'dot'): Styling to be applied to the graph container. You may want to change

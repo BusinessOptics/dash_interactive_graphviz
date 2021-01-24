@@ -50,12 +50,19 @@ class DashInteractiveGraphviz extends Component {
 
     onNodeClick(node) {
         const {setProps} = this.props;
-        setProps({selected: node, selected_node: node});
+        setProps({
+            selected: node, 
+            selected_node: node, 
+            selected_edge : null
+        });
     }
 
     onEdgeClick(edge) {
         const {setProps} = this.props;
-        setProps({selected: edge, selected_edge : edge});
+        setProps({
+            selected_node: null,                  
+            selected_edge : edge
+        });
     }
 
 
@@ -134,11 +141,12 @@ DashInteractiveGraphviz.propTypes = {
      */
     id: PropTypes.string,
     /**
-     * The ID of the selected node.
+     * [Pending Depreciation] The ID of the selected node.
+     * Please use selected_node (or selected_edge for edges)
      */
     selected: PropTypes.string,
     /**
-     * The ID of the selected node.
+     * The ID of the selected node. 
      */
     selected_node: PropTypes.string,
     /**
