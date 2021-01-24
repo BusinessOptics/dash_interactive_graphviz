@@ -22,7 +22,7 @@ app.layout = html.Div(
         ),
         html.Div(
             [
-                html.H3("Selected Node"),
+                html.H3("Selected element"),
                 html.Div(id="selected"),
                 html.H3("Dot Source"),
                 dcc.Textarea(

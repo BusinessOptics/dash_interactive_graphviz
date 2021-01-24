@@ -11,5 +11,3 @@ BugReports: https://github.com/BusinessOptics/dash-interactive-graphviz/issues
 Encoding: UTF-8
 LazyData: true
 KeepSource: true
-Author: James Saunders [aut]
-Maintainer: James Saunders <james@businessoptics.biz>
