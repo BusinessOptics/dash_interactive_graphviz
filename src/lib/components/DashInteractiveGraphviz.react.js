@@ -141,7 +141,7 @@ DashInteractiveGraphviz.propTypes = {
      */
     id: PropTypes.string,
     /**
-     * [Pending Depreciation] The ID of the selected node.
+     * [Pending Deprecation] The ID of the selected node.
      * Please use selected_node (or selected_edge for edges)
      */
     selected: PropTypes.string,
