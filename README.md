@@ -40,7 +40,8 @@ dash_interactive_graphviz.DashInteractiveGraphviz(
 ```
 
 When a node or edge is clicked the  `selected_node` or `selected_edge` property will change. 
-The `selected` property remains and will still change, but users should update to reflect the node/edge distinction, to avoid breaking changes in the longer term. 
+
+**NOTE** [Pending depreciation] `selected` is replaced by `selected_node`. 
 
 Hooks on selected graph elements allow you to change elements of your Dash app when a graph element is selected. For example:
 
