@@ -1,6 +1,6 @@
 {
     "name": "dash_interactive_graphviz",
-    "version": "0.2.0",
+    "version": "0.2.0-dev",
     "description": "An interactive graphviz viewer for Dash",
     "repository": {
         "type": "git",
