@@ -7,6 +7,8 @@ import * as d3 from 'd3';
 import * as d3Graphviz from 'd3-graphviz';
 import {withSize} from 'react-sizeme';
 
+var _ = require('lodash/core');
+
 /**
  * An interactive graphviz renderer.
  *
@@ -17,12 +19,17 @@ import {withSize} from 'react-sizeme';
  * intensive.
  */
 class DashInteractiveGraphviz extends Component {
+    constructor(props) {
+        super(props);
+        this.graph_id = _.uniqueId("graph-");
+    }
+
     setGraph() {
         const {dot_source, size, engine} = this.props;
         const onNodeClick = (node) => this.onNodeClick(node);
         const onEdgeClick = (edge) => this.onEdgeClick(edge)
         try {
-            d3.select('.graph')
+            d3.select('#'+ this.graph_id)
                 .graphviz()
                 .engine(engine)
                 .width(size.width)
@@ -45,7 +52,7 @@ class DashInteractiveGraphviz extends Component {
     }
 
     fitGraph() {
-        d3.select('.graph').graphviz().fit(true).resetZoom();
+        d3.select('#'+ this.graph_id).graphviz().fit(true).resetZoom();
     }
 
     onNodeClick(node) {
@@ -85,6 +92,7 @@ class DashInteractiveGraphviz extends Component {
 
     render() {
         const {id, style, fit_button_style, fit_button_content} = this.props;
+        console.debug(this.graph_id)
         return (
             <div
                 id={id}
@@ -96,7 +104,7 @@ class DashInteractiveGraphviz extends Component {
                 }}
             >
                 <div
-                    className="graph"
+                    id={this.graph_id}
                     style={{
                         position: 'absolute',
                         height: '100%',
