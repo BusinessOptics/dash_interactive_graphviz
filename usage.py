@@ -1,8 +1,6 @@
 import dash_interactive_graphviz
 import dash
-from dash.dependencies import Input, Output
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import Input, Output, html, dcc
 
 app = dash.Dash(__name__)
 
@@ -17,7 +15,7 @@ a->c->d
 app.layout = html.Div(
     [
         html.Div(
-            dash_interactive_graphviz.DashInteractiveGraphviz(id="gv"),
+            dash_interactive_graphviz.DashInteractiveGraphviz(id="gv", scale=0.5, fit_button_content=""),
             style=dict(flexGrow=1, position="relative"),
         ),
         html.Div(
