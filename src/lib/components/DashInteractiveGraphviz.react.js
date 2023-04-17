@@ -30,10 +30,10 @@ class DashInteractiveGraphviz extends Component {
                 .width(size.width)
                 .height(size.height)
                 .fit(true)
-                .scale(scale)
-                .transition(
-                    d3.transition('main').ease(d3.easeLinear).duration(1000)
-                )
+//                .scale(scale)
+//                .transition(
+//                    d3.transition('main').ease(d3.easeLinear).duration(1000)
+//                )
                 .attributer(function (d, i, g) {
                     if (onNodeClick && d.attributes.class === 'node') {
                         this.onclick = () => onNodeClick(d.key);
@@ -132,7 +132,7 @@ class DashInteractiveGraphviz extends Component {
 DashInteractiveGraphviz.defaultProps = {
     fit_button_content: '\u25A3',
     fit_button_style: {},
-    style: {},
+//    style: {},
     engine: 'dot',
     persisted_props: ['selected', 'selected_node', 'selected_edge', 'dot_source', 'engine'],
     persistence_type: 'local',
@@ -181,7 +181,7 @@ DashInteractiveGraphviz.propTypes = {
     /**
      * A scaling factor for the initial zoom level
      */
-    scale: PropTypes.float,
+//    scale: PropTypes.float,
     /**
      * Used to allow user interactions in this component to be persisted when
      * the component - or the page - is refreshed. If `persisted` is truthy and

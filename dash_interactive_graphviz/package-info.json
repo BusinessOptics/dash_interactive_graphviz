@@ -1,6 +1,6 @@
 {
     "name": "dash_interactive_graphviz",
-    "version": "0.2.0",
+    "version": "0.3.2",
     "description": "An interactive graphviz viewer for Dash",
     "repository": {
         "type": "git",
@@ -24,10 +24,10 @@
     "author": "James Saunders <james@businessoptics.biz>",
     "license": "MIT",
     "dependencies": {
-        "d3": "^5.14.2",
-        "d3-graphviz": "^2.6.1",
-        "ramda": "^0.26.1",
-        "react-sizeme": "^2.6.10"
+        "d3": ">=5.14.2",
+        "d3-graphviz": ">=2.6.1",
+        "ramda": ">=0.26.1",
+        "react-sizeme": ">=2.6.10"
     },
     "devDependencies": {
         "@babel/core": "^7.5.4",
@@ -49,9 +49,8 @@
         "react-dom": "^16.8.6",
         "styled-jsx": "^3.2.1",
         "style-loader": "^0.23.1",
-        "webpack": "4.36.1",
-        "webpack-cli": "3.3.6",
-        "webpack-serve": "3.1.0"
+        "webpack": ">=5.60",
+        "webpack-cli": ">=3.3.6"
     },
     "engines": {
         "node": ">=8.11.0",

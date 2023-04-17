@@ -13,8 +13,8 @@ An interactive graphviz renderer.  Renders the dot language in the browser. It a
 dashInteractiveGraphviz(id=NULL, dot_source=NULL, engine=NULL,
 fit_button_content=NULL, fit_button_style=NULL,
 persisted_props=NULL, persistence=NULL,
-persistence_type=NULL, scale=NULL, selected=NULL,
-selected_edge=NULL, selected_node=NULL, style=NULL)
+persistence_type=NULL, selected=NULL, selected_edge=NULL,
+selected_node=NULL, style=NULL)
 }
 
 \arguments{
@@ -44,8 +44,6 @@ Used in conjunction with `persistence_type`.}
 memory: only kept in memory, reset on page refresh.
 local: window.localStorage, data is kept after the browser quit.
 session: window.sessionStorage, data is cleared once the browser quit.}
-
-\item{scale}{A scaling factor for the initial zoom level}
 
 \item{selected}{Character. [Pending Deprecation] The ID of the selected node.
 Please use selected_node (or selected_edge for edges)}

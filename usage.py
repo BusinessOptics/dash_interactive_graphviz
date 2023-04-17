@@ -2,7 +2,14 @@ import dash_interactive_graphviz
 import dash
 from dash import Input, Output, html, dcc
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__,
+                external_scripts=
+                [
+                    {
+                        'src': 'https://unpkg.com/@hpcc-js/wasm/dist/graphviz.umd.js',
+                        'type': 'javascript/worker'}
+                ]
+                )
 
 initial_dot_source = """
 digraph  {
@@ -15,7 +22,7 @@ a->c->d
 app.layout = html.Div(
     [
         html.Div(
-            dash_interactive_graphviz.DashInteractiveGraphviz(id="gv", scale=0.5, fit_button_content=""),
+            dash_interactive_graphviz.DashInteractiveGraphviz(id="gv", fit_button_content=""),
             style=dict(flexGrow=1, position="relative"),
         ),
         html.Div(

@@ -94,11 +94,7 @@
           "name": "any"
         },
         "required": false,
-        "description": "Styling to be applied to the graph container. You may want to change\nyour graphviz background to transparent.",
-        "defaultValue": {
-          "value": "{}",
-          "computed": false
-        }
+        "description": "Styling to be applied to the graph container. You may want to change\nyour graphviz background to transparent."
       },
       "fit_button_style": {
         "type": {
@@ -121,14 +117,6 @@
           "value": "'\\u25A3'",
           "computed": false
         }
-      },
-      "scale": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.float"
-        },
-        "required": false,
-        "description": "A scaling factor for the initial zoom level"
       },
       "persistence": {
         "type": {

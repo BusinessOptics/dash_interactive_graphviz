@@ -52,9 +52,6 @@ Keyword arguments:
     kept after the browser quit. session: window.sessionStorage, data
     is cleared once the browser quit.
 
-- scale (optional):
-    A scaling factor for the initial zoom level.
-
 - selected (string; optional):
     [Pending Deprecation] The ID of the selected node. Please use
     selected_node (or selected_edge for edges).
@@ -73,10 +70,10 @@ Keyword arguments:
     _namespace = 'dash_interactive_graphviz'
     _type = 'DashInteractiveGraphviz'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, selected=Component.UNDEFINED, selected_node=Component.UNDEFINED, selected_edge=Component.UNDEFINED, dot_source=Component.UNDEFINED, engine=Component.UNDEFINED, style=Component.UNDEFINED, fit_button_style=Component.UNDEFINED, fit_button_content=Component.UNDEFINED, scale=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'dot_source', 'engine', 'fit_button_content', 'fit_button_style', 'persisted_props', 'persistence', 'persistence_type', 'scale', 'selected', 'selected_edge', 'selected_node', 'style']
+    def __init__(self, id=Component.UNDEFINED, selected=Component.UNDEFINED, selected_node=Component.UNDEFINED, selected_edge=Component.UNDEFINED, dot_source=Component.UNDEFINED, engine=Component.UNDEFINED, style=Component.UNDEFINED, fit_button_style=Component.UNDEFINED, fit_button_content=Component.UNDEFINED, persistence=Component.UNDEFINED, persisted_props=Component.UNDEFINED, persistence_type=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'dot_source', 'engine', 'fit_button_content', 'fit_button_style', 'persisted_props', 'persistence', 'persistence_type', 'selected', 'selected_edge', 'selected_node', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'dot_source', 'engine', 'fit_button_content', 'fit_button_style', 'persisted_props', 'persistence', 'persistence_type', 'scale', 'selected', 'selected_edge', 'selected_node', 'style']
+        self.available_properties = ['id', 'dot_source', 'engine', 'fit_button_content', 'fit_button_style', 'persisted_props', 'persistence', 'persistence_type', 'selected', 'selected_edge', 'selected_node', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
