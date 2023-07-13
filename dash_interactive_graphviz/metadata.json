@@ -1,6 +1,6 @@
 {
   "src/lib/components/DashInteractiveGraphviz.react.js": {
-    "description": "An interactive graphviz renderer.\r\n\nRenders the dot language in the browser. It allows for panning and zooming\r\nand node selection. Changes in the dot_source will be animated.\r\n\nGraphviz is run in the browser via viz.js, so it can be computationally\r\nintensive.",
+    "description": "An interactive graphviz renderer.\n\nRenders the dot language in the browser. It allows for panning and zooming\nand node selection. Changes in the dot_source will be animated.\n\nGraphviz is run in the browser via viz.js, so it can be computationally\nintensive.",
     "displayName": "DashInteractiveGraphviz",
     "methods": [
       {
@@ -55,14 +55,14 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of the selected node, retains functions of previous 'selected' prop"
+        "description": "[Pending Deprecation] The ID of the selected node.\nPlease use selected_node (or selected_edge for edges)"
       },
       "selected_node": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "The ID of the selected node. Placeholder for superceding 'selected' prop.\r\nSame functionality as 'selected'"
+        "description": "The ID of the selected node."
       },
       "selected_edge": {
         "type": {
@@ -83,7 +83,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "Styling to be applied to the graph container. You may want to change\r\nyour graphviz background to transparent.",
+        "description": "Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine\nfor more information",
         "defaultValue": {
           "value": "'dot'",
           "computed": false
@@ -94,11 +94,7 @@
           "name": "any"
         },
         "required": false,
-        "description": "Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine\r\nfor more information",
-        "defaultValue": {
-          "value": "{}",
-          "computed": false
-        }
+        "description": "Styling to be applied to the graph container. You may want to change\nyour graphviz background to transparent."
       },
       "fit_button_style": {
         "type": {
@@ -138,7 +134,7 @@
           ]
         },
         "required": false,
-        "description": "Used to allow user interactions in this component to be persisted when\r\nthe component - or the page - is refreshed. If `persisted` is truthy and\r\nhasn't changed from its previous value, a `value` that the user has\r\nchanged while using the app will keep that change, as long as\r\nthe new `value` also matches what was given originally.\r\nUsed in conjunction with `persistence_type`."
+        "description": "Used to allow user interactions in this component to be persisted when\nthe component - or the page - is refreshed. If `persisted` is truthy and\nhasn't changed from its previous value, a `value` that the user has\nchanged while using the app will keep that change, as long as\nthe new `value` also matches what was given originally.\nUsed in conjunction with `persistence_type`."
       },
       "persisted_props": {
         "type": {
@@ -170,7 +166,7 @@
           }
         },
         "required": false,
-        "description": "Properties whose user interactions will persist after refreshing the\r\ncomponent or the page. Since only `value` is allowed this prop can\r\nnormally be ignored.",
+        "description": "Properties whose user interactions will persist after refreshing the\ncomponent or the page. Since only `value` is allowed this prop can\nnormally be ignored.",
         "defaultValue": {
           "value": "['selected', 'selected_node', 'selected_edge', 'dot_source', 'engine']",
           "computed": false
@@ -195,7 +191,7 @@
           ]
         },
         "required": false,
-        "description": "Where persisted user changes will be stored:\r\nmemory: only kept in memory, reset on page refresh.\r\nlocal: window.localStorage, data is kept after the browser quit.\r\nsession: window.sessionStorage, data is cleared once the browser quit.",
+        "description": "Where persisted user changes will be stored:\nmemory: only kept in memory, reset on page refresh.\nlocal: window.localStorage, data is kept after the browser quit.\nsession: window.sessionStorage, data is cleared once the browser quit.",
         "defaultValue": {
           "value": "'local'",
           "computed": false
@@ -206,7 +202,7 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
       }
     }
   }

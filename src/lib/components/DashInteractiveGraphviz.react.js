@@ -18,9 +18,11 @@ import {withSize} from 'react-sizeme';
  */
 class DashInteractiveGraphviz extends Component {
     setGraph() {
-        const {dot_source, size, engine} = this.props;
+        const {dot_source, size, scale, engine} = this.props;
         const onNodeClick = (node) => this.onNodeClick(node);
-        const onEdgeClick = (edge) => this.onEdgeClick(edge)
+        const onEdgeClick = (edge) => this.onEdgeClick(edge);
+//        const px2pt = 12 / 4;
+//        const scalar = 8;
         try {
             d3.select('.graph')
                 .graphviz()
@@ -28,9 +30,10 @@ class DashInteractiveGraphviz extends Component {
                 .width(size.width)
                 .height(size.height)
                 .fit(true)
-                .transition(
-                    d3.transition('main').ease(d3.easeLinear).duration(1000)
-                )
+//                .scale(scale)
+//                .transition(
+//                    d3.transition('main').ease(d3.easeLinear).duration(1000)
+//                )
                 .attributer(function (d, i, g) {
                     if (onNodeClick && d.attributes.class === 'node') {
                         this.onclick = () => onNodeClick(d.key);
@@ -129,7 +132,7 @@ class DashInteractiveGraphviz extends Component {
 DashInteractiveGraphviz.defaultProps = {
     fit_button_content: '\u25A3',
     fit_button_style: {},
-    style: {},
+//    style: {},
     engine: 'dot',
     persisted_props: ['selected', 'selected_node', 'selected_edge', 'dot_source', 'engine'],
     persistence_type: 'local',
@@ -158,13 +161,13 @@ DashInteractiveGraphviz.propTypes = {
      */
     dot_source: PropTypes.string,
     /**
-     * Styling to be applied to the graph container. You may want to change
-     * your graphviz background to transparent.
-     */
-    engine: PropTypes.string,
-    /**
      * Changes the layout engine, see https://github.com/magjac/d3-graphviz#graphviz_engine
      * for more information
+     */
+    engine: PropTypes.string,
+     /**
+     * Styling to be applied to the graph container. You may want to change
+     * your graphviz background to transparent.
      */
     style: PropTypes.any,
     /**
@@ -175,6 +178,10 @@ DashInteractiveGraphviz.propTypes = {
      * The text content of the fit button, by default it is an small square unicode character.
      */
     fit_button_content: PropTypes.string,
+    /**
+     * A scaling factor for the initial zoom level
+     */
+//    scale: PropTypes.float,
     /**
      * Used to allow user interactions in this component to be persisted when
      * the component - or the page - is refreshed. If `persisted` is truthy and

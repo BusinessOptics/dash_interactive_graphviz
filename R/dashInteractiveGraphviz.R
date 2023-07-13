@@ -1,8 +1,9 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-dashInteractiveGraphviz <- function(id=NULL, selected=NULL, dot_source=NULL, engine=NULL, style=NULL, fit_button_style=NULL, fit_button_content=NULL, persistence=NULL, persisted_props=NULL, persistence_type=NULL) {
+#' @export
+dashInteractiveGraphviz <- function(id=NULL, dot_source=NULL, engine=NULL, fit_button_content=NULL, fit_button_style=NULL, persisted_props=NULL, persistence=NULL, persistence_type=NULL, selected=NULL, selected_edge=NULL, selected_node=NULL, style=NULL) {
     
-    props <- list(id=id, selected=selected, dot_source=dot_source, engine=engine, style=style, fit_button_style=fit_button_style, fit_button_content=fit_button_content, persistence=persistence, persisted_props=persisted_props, persistence_type=persistence_type)
+    props <- list(id=id, dot_source=dot_source, engine=engine, fit_button_content=fit_button_content, fit_button_style=fit_button_style, persisted_props=persisted_props, persistence=persistence, persistence_type=persistence_type, selected=selected, selected_edge=selected_edge, selected_node=selected_node, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +11,7 @@ dashInteractiveGraphviz <- function(id=NULL, selected=NULL, dot_source=NULL, eng
         props = props,
         type = 'DashInteractiveGraphviz',
         namespace = 'dash_interactive_graphviz',
-        propNames = c('id', 'selected', 'dot_source', 'engine', 'style', 'fit_button_style', 'fit_button_content', 'persistence', 'persisted_props', 'persistence_type'),
+        propNames = c('id', 'dot_source', 'engine', 'fit_button_content', 'fit_button_style', 'persisted_props', 'persistence', 'persistence_type', 'selected', 'selected_edge', 'selected_node', 'style'),
         package = 'dashInteractiveGraphviz'
         )
 
