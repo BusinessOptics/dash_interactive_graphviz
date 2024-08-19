@@ -67,7 +67,7 @@ The following behaviors are enabled:
 - When the dot_source is changed the graph will smoothly animate between the two states.
 - You can click and drag the graph around
 - You can zoom in and out with the scroll wheel
-- You can reset the graph position and zoom by clicking the reset icon in teh top right corner
+- You can reset the graph position and zoom by clicking the reset icon in the top right corner
 - The graph pane will size to whet ever it's parents size is, the graph will re-render but the re-render is debounced so as not to overload the browser.
 - You can select a graph element (node or edge) which will fire an update to any dash callbacks that are connected.
 - You can change the layout engine
